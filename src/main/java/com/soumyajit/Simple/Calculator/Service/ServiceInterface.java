@@ -9,4 +9,7 @@ public interface ServiceInterface {
     double pow(double a , double b);
     double log(double a);
     double exponential(double a);
+    double sin(double a);
+    double cos(double a);
+    double tan(double a);
 }

@@ -51,4 +51,19 @@ public class Service implements ServiceInterface{
     public double exponential(double a) {
         return Math.exp(a);
     }
+
+    @Override
+    public double sin(double a) {
+        return Math.sin(Math.toRadians(a));
+    }
+
+    @Override
+    public double cos(double a) {
+        return Math.cos(Math.toRadians(a));
+    }
+
+    @Override
+    public double tan(double a) {
+        return Math.tan(Math.toRadians(a));
+    }
 }

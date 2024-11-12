@@ -51,4 +51,16 @@ public class Controller {
     public double exponential(@RequestParam double a){
         return service.exponential(a);
     }
+    @GetMapping("/sin")
+    public double sin(@RequestParam double a){
+        return service.sin(a);
+    }
+    @GetMapping("/cos")
+    public double cos(@RequestParam double a){
+        return service.cos(a);
+    }
+    @GetMapping("/tan")
+    public double tan(@RequestParam double a){
+        return service.tan(a);
+    }
 }
