@@ -63,4 +63,20 @@ public class Controller {
     public double tan(@RequestParam double a){
         return service.tan(a);
     }
+    @GetMapping("/cosec")
+    public double cosec(@RequestParam double a){
+        return service.cosec(a);
+    }
+    @GetMapping("/sec")
+    public double sec(@RequestParam double a){
+        return service.sec(a);
+    }
+    @GetMapping("/cot")
+    public double cot(@RequestParam double a){
+        return service.cot(a);
+    }
+    @GetMapping("/factorial")
+    public double factorial (@RequestParam double a){
+        return service.factorial(a);
+    }
 }

@@ -12,4 +12,8 @@ public interface ServiceInterface {
     double sin(double a);
     double cos(double a);
     double tan(double a);
+    double cosec(double a);
+    double sec(double a);
+    double cot(double a);
+    double factorial(double a);
 }
