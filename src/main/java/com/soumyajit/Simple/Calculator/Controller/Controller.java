@@ -138,6 +138,10 @@ public class Controller {
     }
     @GetMapping("/tan")
     public ResponseEntity<CalculatorResponse<Double>> tan(@RequestParam double a){
+        if(a==90){
+            CalculatorResponse<Double> response = new CalculatorResponse<>(null,"Tan 90 is undefined",HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(response,HttpStatus.BAD_REQUEST);
+        }
         try{
             double res =  service.tan(a);
             CalculatorResponse<Double> response = new CalculatorResponse<>(res,"Tan Calculation Done",HttpStatus.OK);
@@ -170,6 +174,10 @@ public class Controller {
     }
     @GetMapping("/cot")
     public ResponseEntity<CalculatorResponse<Double>> cot(@RequestParam double a){
+        if(a == 90){
+            CalculatorResponse<Double> response = new CalculatorResponse<>(0.0,"Cotangent Calculation Done",HttpStatus.OK);
+            return new ResponseEntity<>(response,HttpStatus.OK);
+        }
         double res =  service.cot(a);
         if(a == 0 || a==180 || a==360) {
             CalculatorResponse<Double> response = new CalculatorResponse<>(null, "Cotangent is undefined for angles  (e.g., 0°, 180°, 360°).", HttpStatus.BAD_REQUEST);
@@ -185,8 +193,8 @@ public class Controller {
             CalculatorResponse<Double> response = new CalculatorResponse<>(null, "Cannot take the Factorial of negetive Value",HttpStatus.BAD_REQUEST);
             return new ResponseEntity<>(response,HttpStatus.BAD_REQUEST);
         }
-        CalculatorResponse<Double> response = new CalculatorResponse<>(res ,"Factorial Calculations Done",HttpStatus.BAD_REQUEST);
-        return new ResponseEntity<>(response,HttpStatus.BAD_REQUEST);
+        CalculatorResponse<Double> response = new CalculatorResponse<>(res ,"Factorial Calculations Done",HttpStatus.OK);
+        return new ResponseEntity<>(response,HttpStatus.OK);
 
     }
     @GetMapping("/gcd")
