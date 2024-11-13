@@ -14,15 +14,13 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/calculator")
 public class Controller {
-    //private final Service service;
+    private final Service service;
 
-    //@Autowired
-   // public Controller(Service service) {
-    //    this.service = service;
-    //}
 
-    @Autowired
-    private Service service;
+    public Controller(Service service) {
+        this.service = service;
+    }
+
 
     @GetMapping("/add")
     public ResponseEntity<CalculatorResponse<Double>> add(@RequestParam double a , @RequestParam double b){

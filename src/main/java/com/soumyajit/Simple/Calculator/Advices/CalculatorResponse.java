@@ -11,8 +11,8 @@ import org.springframework.http.HttpStatus;
 @AllArgsConstructor
 @NoArgsConstructor
 public class CalculatorResponse <T>{
-    private T res;
-    private String msg;
+    private T result;
+    private String message;
     private HttpStatus status;
 
     public CalculatorResponse(HttpStatus status) {
