@@ -16,4 +16,5 @@ public interface ServiceInterface {
     double sec(double a);
     double cot(double a);
     double factorial(double a);
+    double gcd(double a , double b);
 }

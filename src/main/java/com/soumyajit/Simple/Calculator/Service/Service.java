@@ -70,36 +70,32 @@ public class Service implements ServiceInterface{
     @Override
     public double cosec(double a) {
         double sinval = Math.sin(Math.toRadians(a));
-        if(sinval == 0){
-            throw new ArithmeticException("Cosecant is undefined for angles where sine is 0");
-        }
         return (1/sinval);
     }
 
     @Override
     public double sec(double a) {
         double cosval = Math.cos(Math.toRadians(a));
-        if(cosval == 0){
-            throw new ArithmeticException("Secant is undefined for angles where cosine is 0");
-        }
+
         return (1/cosval);
     }
 
     @Override
     public double cot(double a) {
         double tanval = Math.tan(Math.toRadians(a));
-        if (tanval == 0) {
-            throw new ArithmeticException("Cotangent is undefined for angles where tangent is 0 (e.g., 0°, 180°, 360°).");
-        }
         return 1 / tanval;
     }
     @Override
     public double factorial(double a){
-        if(a == 0 || a==1){
-            return 1;
+        int fact = 1;
+        for(int i = 1 ; i<=a ; i++){
+            fact = fact*i;
         }
-        else{
-            return a*factorial(a-1);
-        }
+        return fact;
+    }
+    @Override
+    public double gcd(double a , double b){
+        if(b == 0)return a;
+        return gcd(b,a%b);
     }
 }
