@@ -1,12 +1,10 @@
 package com.soumyajit.Simple.Calculator.Controller;
 
 
-import com.soumyajit.Simple.Calculator.Advices.ApiError;
 import com.soumyajit.Simple.Calculator.Advices.CalculatorResponse;
 import com.soumyajit.Simple.Calculator.Service.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
