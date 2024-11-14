@@ -59,24 +59,29 @@ public class Controller {
 
     @GetMapping("/division")
     public ResponseEntity<CalculatorResponse<Double>> division(@RequestParam double a , @RequestParam double b){
-        if(b==0){
+        try{
+            if (b == 0) {
+                throw new ArithmeticException("Cannot divide by zero");
+            }
+            double res =  service.division(a,b);
+            CalculatorResponse<Double> response = new CalculatorResponse<>(res,"Division Done",HttpStatus.OK);
+            return new ResponseEntity<>(response,HttpStatus.OK);
+        } catch (ArithmeticException e) {
             CalculatorResponse<Double> response = new CalculatorResponse<>(null , "Cannot divide by Zero",HttpStatus.BAD_REQUEST);
             return new ResponseEntity<>(response,HttpStatus.BAD_REQUEST);
         }
-        double res =  service.division(a,b);
-        CalculatorResponse<Double> response = new CalculatorResponse<>(res,"Division Done",HttpStatus.OK);
-        return new ResponseEntity<>(response,HttpStatus.OK);
     }
 
     @GetMapping("/sqrt")
     public ResponseEntity<CalculatorResponse<Double>> sqrt(@RequestParam double a){
-        if(a<0){
+        try{
+            double res =  service.sqrt(a);
+            CalculatorResponse<Double> response = new CalculatorResponse<>(res,"Square root calculation done",HttpStatus.OK);
+            return new ResponseEntity<>(response,HttpStatus.OK);
+        }catch (Exception e){
             CalculatorResponse<Double> response = new CalculatorResponse<>(null , "Cant Cannot take the square root of a negative number",HttpStatus.BAD_REQUEST);
             return new ResponseEntity<>(response,HttpStatus.BAD_REQUEST);
         }
-        double res =  service.sqrt(a);
-        CalculatorResponse<Double> response = new CalculatorResponse<>(res,"Square root calculation done",HttpStatus.OK);
-        return new ResponseEntity<>(response,HttpStatus.OK);
     }
     @GetMapping("/pow")
     public ResponseEntity<CalculatorResponse<Double>> pow(@RequestParam double a,@RequestParam double b){
